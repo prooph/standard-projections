@@ -12,7 +12,6 @@ declare(strict_types=1);
 
 namespace Prooph\StandardProjections\Container;
 
-
 use Interop\Container\ContainerInterface;
 use Prooph\StandardProjections\CategoryStreamProjection;
 
