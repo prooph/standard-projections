@@ -34,11 +34,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Prooph\\EventStore\\PDO\\": "src/"
+            "Prooph\\StandardProjections\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
+            "ProophTest\\StandardProjections\\": "tests/",
             "ProophTest\\EventStore\\": "vendor/prooph/event-store/tests/"
         }
     },
