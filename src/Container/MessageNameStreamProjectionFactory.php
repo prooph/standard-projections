@@ -14,24 +14,24 @@ namespace Prooph\StandardProjections\Container;
 
 
 use Interop\Container\ContainerInterface;
-use Prooph\StandardProjections\AllStreamProjection;
+use Prooph\StandardProjections\CategoryStreamProjection;
 
-final class AllStreamProjectionFactory extends AbstractStreamProjectionFactory
+final class MessageNameStreamProjectionFactory extends AbstractStreamProjectionFactory
 {
-    public function __invoke(ContainerInterface $container): AllStreamProjection
+    public function __invoke(ContainerInterface $container): CategoryStreamProjection
     {
-        $projection = $this->createProjection($container, true);
+        $projection = $this->createProjection($container, false);
 
-        return new AllStreamProjection($projection);
+        return new CategoryStreamProjection($projection);
     }
 
     protected function streamName(): string
     {
-        return '$all';
+        return '$by_message_name';
     }
 
     public function dimensions(): array
     {
-        return ['prooph', 'standard_projections', 'all'];
+        return ['prooph', 'standard_projections', 'message_name'];
     }
 }
