@@ -18,10 +18,9 @@ use Interop\Config\RequiresConfig;
 use Interop\Config\RequiresMandatoryOptions;
 use Interop\Container\ContainerInterface;
 use PDO;
-use Prooph\EventStore\Projection\Projection;
 use Prooph\StandardProjections\AllStreamProjection;
 
-class AllStreamProjectionFactory implements ProvidesDefaultOptions, RequiresConfig, RequiresMandatoryOptions
+final class AllStreamProjectionFactory implements ProvidesDefaultOptions, RequiresConfig, RequiresMandatoryOptions
 {
     use ConfigurationTrait;
 
@@ -29,13 +28,13 @@ class AllStreamProjectionFactory implements ProvidesDefaultOptions, RequiresConf
      * @var array
      */
     private $pdoDriverSchemeAliases = [
-        'pdo_mysql'  => 'mysql',
-        'pdo_pgsql'  => 'pgsql',
+        'pdo_mysql' => 'mysql',
+        'pdo_pgsql' => 'pgsql',
     ];
 
     private $pdoDriverSchemeSeparators = [
-        'pdo_mysql'  => ';',
-        'pdo_pgsql'  => ' ',
+        'pdo_mysql' => ';',
+        'pdo_pgsql' => ' ',
     ];
 
     public function __invoke(ContainerInterface $container): AllStreamProjection
