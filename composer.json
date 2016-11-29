@@ -29,16 +29,20 @@
         "satooshi/php-coveralls": "^1.0",
         "malukenho/docheader": "^0.1.4"
     },
+    "suggest": {
+        "prooph/pdo-event-store": "For usage with MySQL or Postgres as event store"
+    },
     "conflict": {
         "sandrokeil/interop-config": "<1.0"
     },
     "autoload": {
         "psr-4": {
-            "Prooph\\EventStore\\PDO\\": "src/"
+            "Prooph\\StandardProjections\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
+            "ProophTest\\StandardProjections\\": "tests/",
             "ProophTest\\EventStore\\": "vendor/prooph/event-store/tests/"
         }
     },
