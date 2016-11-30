@@ -26,7 +26,7 @@ class CategoryStreamProjection
         $this->projection = $projection;
     }
 
-    public function __invoke(): void
+    public function __invoke(bool $keepRunning = true): void
     {
         $this->projection
             ->fromAll()
@@ -42,6 +42,6 @@ class CategoryStreamProjection
 
                 $this->linkTo('$ct-' . $category, $event);
             })
-            ->run();
+            ->run($keepRunning);
     }
 }

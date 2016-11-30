@@ -27,7 +27,7 @@ class MessageNameStreamProjection
         $this->projection = $projection;
     }
 
-    public function __invoke(): void
+    public function __invoke(bool $keepRunning = true): void
     {
         $this->projection
             ->fromAll()
@@ -36,6 +36,6 @@ class MessageNameStreamProjection
 
                 $this->linkTo('$mn-' . $messageName, $event);
             })
-            ->run();
+            ->run($keepRunning);
     }
 }

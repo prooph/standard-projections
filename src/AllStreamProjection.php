@@ -26,13 +26,13 @@ class AllStreamProjection
         $this->projection = $projection;
     }
 
-    public function __invoke(): void
+    public function __invoke(bool $keepRunning = true): void
     {
         $this->projection
             ->fromAll()
             ->whenAny(function ($state, $event): void {
                 $this->emit($event);
             })
-            ->run();
+            ->run($keepRunning);
     }
 }

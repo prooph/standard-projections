@@ -18,10 +18,10 @@ use Prooph\EventStore\InMemoryEventStore;
 use Prooph\EventStore\Projection\InMemoryEventStoreProjection;
 use Prooph\EventStore\Stream;
 use Prooph\EventStore\StreamName;
-use Prooph\StandardProjections\AllStreamProjection;
+use Prooph\StandardProjections\CategoryStreamProjection;
 use ProophTest\EventStore\Mock\TestDomainEvent;
 
-class AllStreamProjectionTest extends TestCase
+class CategoryStreamProjectionTest extends TestCase
 {
     /**
      * @test
@@ -34,7 +34,7 @@ class AllStreamProjectionTest extends TestCase
 
         $eventStore->create(
             new Stream(
-                new StreamName('foo'),
+                new StreamName('foo-123'),
                 new \ArrayIterator([
                     TestDomainEvent::with(['1'], 1),
                     TestDomainEvent::with(['2'], 2),
@@ -44,7 +44,7 @@ class AllStreamProjectionTest extends TestCase
 
         $eventStore->create(
             new Stream(
-                new StreamName('bar'),
+                new StreamName('bar-123'),
                 new \ArrayIterator([
                     TestDomainEvent::with(['a'], 1),
                     TestDomainEvent::with(['b'], 2),
@@ -52,36 +52,51 @@ class AllStreamProjectionTest extends TestCase
             )
         );
 
-        $eventStore->appendTo(
-            new StreamName('foo'),
-            new \ArrayIterator([
-                TestDomainEvent::with(['3'], 3),
-                TestDomainEvent::with(['4'], 4),
-            ])
+        $eventStore->create(
+            new Stream(
+                new StreamName('foo-234'),
+                new \ArrayIterator([
+                    TestDomainEvent::with(['3'], 3),
+                    TestDomainEvent::with(['4'], 4),
+                ])
+            )
         );
 
-        $eventStore->appendTo(
-            new StreamName('bar'),
-            new \ArrayIterator([
-                TestDomainEvent::with(['c'], 3),
-                TestDomainEvent::with(['d'], 4),
-            ])
+        $eventStore->create(
+            new Stream(
+                new StreamName('bar-234'),
+                new \ArrayIterator([
+                    TestDomainEvent::with(['c'], 3),
+                    TestDomainEvent::with(['d'], 4),
+                ])
+            )
+        );
+
+        $eventStore->create(
+            new Stream(
+                new StreamName('baz'),
+                new \ArrayIterator([
+                    TestDomainEvent::with(['1b'], 1),
+                    TestDomainEvent::with(['2b'], 2),
+                ])
+            )
         );
 
         $eventStore->commit();
 
-        $projection = new InMemoryEventStoreProjection($eventStore, '$all', true, 100);
+        $projection = new InMemoryEventStoreProjection($eventStore, '$by_category', true, 100);
 
-        $allStreamProjection = new AllStreamProjection($projection);
-        $allStreamProjection(false);
+        $categoryStreamProjection = new CategoryStreamProjection($projection);
+        $categoryStreamProjection(false);
 
-        $this->assertTrue($eventStore->hasStream(new StreamName('$all')));
+        $this->assertTrue($eventStore->hasStream(new StreamName('$ct-foo')));
+        $this->assertTrue($eventStore->hasStream(new StreamName('$ct-bar')));
 
-        $stream = $eventStore->load(new StreamName('$all'));
+        $stream = $eventStore->load(new StreamName('$ct-foo'));
 
         $streamEvents = $stream->streamEvents();
 
-        $this->assertCount(8, $streamEvents);
+        $this->assertCount(4, $streamEvents);
 
         $event = $streamEvents->current();
 
@@ -102,7 +117,12 @@ class AllStreamProjectionTest extends TestCase
 
         $this->assertEquals(['4'], $event->payload());
 
-        $streamEvents->next();
+        $stream = $eventStore->load(new StreamName('$ct-bar'));
+
+        $streamEvents = $stream->streamEvents();
+
+        $this->assertCount(4, $streamEvents);
+
         $event = $streamEvents->current();
 
         $this->assertEquals(['a'], $event->payload());
