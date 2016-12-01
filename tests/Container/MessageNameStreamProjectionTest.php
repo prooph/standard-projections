@@ -23,8 +23,8 @@ use Prooph\EventStore\PDO\IndexingStrategy;
 use Prooph\EventStore\PDO\MySQLEventStore;
 use Prooph\EventStore\PDO\PostgresEventStore;
 use Prooph\EventStore\PDO\TableNameGeneratorStrategy;
-use Prooph\StandardProjections\MessageNameStreamProjection;
 use Prooph\StandardProjections\Container\MessageNameStreamProjectionFactory;
+use Prooph\StandardProjections\MessageNameStreamProjection;
 
 class MessageNameStreamProjectionTest extends TestCase
 {
