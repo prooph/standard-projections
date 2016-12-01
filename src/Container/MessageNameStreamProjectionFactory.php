@@ -13,15 +13,15 @@ declare(strict_types=1);
 namespace Prooph\StandardProjections\Container;
 
 use Interop\Container\ContainerInterface;
-use Prooph\StandardProjections\CategoryStreamProjection;
+use Prooph\StandardProjections\MessageNameStreamProjection;
 
 final class MessageNameStreamProjectionFactory extends AbstractStreamProjectionFactory
 {
-    public function __invoke(ContainerInterface $container): CategoryStreamProjection
+    public function __invoke(ContainerInterface $container): MessageNameStreamProjection
     {
         $projection = $this->createProjection($container, false);
 
-        return new CategoryStreamProjection($projection);
+        return new MessageNameStreamProjection($projection);
     }
 
     protected function streamName(): string

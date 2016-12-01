@@ -57,7 +57,8 @@ abstract class AbstractStreamProjectionFactory implements
                     $config['event_streams_table'],
                     $config['projections_table'],
                     $config['lock_timeout_ms'],
-                    $emitEnabled
+                    $emitEnabled,
+                    $config['cache_size']
                 );
                 break;
             case \Prooph\EventStore\PDO\PostgresEventStore::class:
@@ -68,14 +69,16 @@ abstract class AbstractStreamProjectionFactory implements
                     $config['event_streams_table'],
                     $config['projections_table'],
                     $config['lock_timeout_ms'],
-                    $emitEnabled
+                    $emitEnabled,
+                    $config['cache_size']
                 );
                 break;
             case InMemoryEventStore::class:
                 $projection = new \Prooph\EventStore\Projection\InMemoryEventStoreProjection(
                     $eventStore,
                     $this->streamName(),
-                    $emitEnabled
+                    $emitEnabled,
+                    $config['cache_size']
                 );
                 break;
             default:
@@ -108,6 +111,7 @@ abstract class AbstractStreamProjectionFactory implements
             'event_streams_table' => 'event_streams',
             'projections_table' => 'projection',
             'lock_timeout_ms' => 1000,
+            'cache_size' => 5000,
         ];
     }
 
