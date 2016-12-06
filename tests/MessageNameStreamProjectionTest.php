@@ -54,7 +54,7 @@ class MessageNameStreamProjectionTest extends TestCase
 
         $eventStore->commit();
 
-        $projection = new InMemoryEventStoreProjection($eventStore, '$by_message_name', true, 100);
+        $projection = new InMemoryEventStoreProjection($eventStore, '$by_message_name', 100, 100);
 
         $categoryStreamProjection = new MessageNameStreamProjection($projection);
         $categoryStreamProjection(false);

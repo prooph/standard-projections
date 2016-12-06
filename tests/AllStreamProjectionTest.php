@@ -70,7 +70,7 @@ class AllStreamProjectionTest extends TestCase
 
         $eventStore->commit();
 
-        $projection = new InMemoryEventStoreProjection($eventStore, '$all', true, 100);
+        $projection = new InMemoryEventStoreProjection($eventStore, '$all', 100, 100);
 
         $allStreamProjection = new AllStreamProjection($projection);
         $allStreamProjection(false);

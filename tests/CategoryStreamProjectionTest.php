@@ -84,7 +84,7 @@ class CategoryStreamProjectionTest extends TestCase
 
         $eventStore->commit();
 
-        $projection = new InMemoryEventStoreProjection($eventStore, '$by_category', true, 100);
+        $projection = new InMemoryEventStoreProjection($eventStore, '$by_category', 100, 100);
 
         $categoryStreamProjection = new CategoryStreamProjection($projection);
         $categoryStreamProjection(false);
