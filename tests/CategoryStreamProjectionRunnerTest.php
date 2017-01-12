@@ -15,7 +15,6 @@ namespace ProophTest\StandardProjections;
 use PHPUnit\Framework\TestCase;
 use Prooph\Common\Event\ProophActionEventEmitter;
 use Prooph\EventStore\InMemoryEventStore;
-use Prooph\EventStore\Projection\InMemoryEventStoreProjection;
 use Prooph\EventStore\Stream;
 use Prooph\EventStore\StreamName;
 use Prooph\StandardProjections\CategoryStreamProjectionRunner;
