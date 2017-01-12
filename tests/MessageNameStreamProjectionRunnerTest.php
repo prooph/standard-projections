@@ -18,7 +18,7 @@ use Prooph\EventStore\InMemoryEventStore;
 use Prooph\EventStore\Projection\InMemoryEventStoreProjection;
 use Prooph\EventStore\Stream;
 use Prooph\EventStore\StreamName;
-use Prooph\StandardProjections\MessageNameStreamProjection;
+use Prooph\StandardProjections\MessageNameStreamProjectionRunner;
 use ProophTest\StandardProjections\Mock\TestDomainEvent;
 
 class MessageNameStreamProjectionRunnerTest extends TestCase
@@ -54,7 +54,7 @@ class MessageNameStreamProjectionRunnerTest extends TestCase
 
         $eventStore->commit();
 
-        $categoryStreamProjection = new MessageNameStreamProjection($eventStore);
+        $categoryStreamProjection = new MessageNameStreamProjectionRunner($eventStore);
         $categoryStreamProjection(false);
 
         $this->assertTrue($eventStore->hasStream(new StreamName('$mn-event-a')));

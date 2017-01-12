@@ -16,7 +16,7 @@ use Prooph\Common\Messaging\Message;
 use Prooph\EventStore\EventStore;
 use Prooph\EventStore\Projection\ProjectionOptions;
 
-class MessageNameStreamProjection
+class MessageNameStreamProjectionRunner
 {
     /**
      * @var EventStore
