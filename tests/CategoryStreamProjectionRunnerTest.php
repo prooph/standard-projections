@@ -1,8 +1,8 @@
 <?php
 /**
  * This file is part of the prooph/standard-projections.
- * (c) 2016-2016 prooph software GmbH <contact@prooph.de>
- * (c) 2016-2016 Sascha-Oliver Prolic <saschaprolic@googlemail.com>
+ * (c) 2016-2017 prooph software GmbH <contact@prooph.de>
+ * (c) 2016-2017 Sascha-Oliver Prolic <saschaprolic@googlemail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,13 +15,12 @@ namespace ProophTest\StandardProjections;
 use PHPUnit\Framework\TestCase;
 use Prooph\Common\Event\ProophActionEventEmitter;
 use Prooph\EventStore\InMemoryEventStore;
-use Prooph\EventStore\Projection\InMemoryEventStoreProjection;
 use Prooph\EventStore\Stream;
 use Prooph\EventStore\StreamName;
-use Prooph\StandardProjections\CategoryStreamProjection;
+use Prooph\StandardProjections\CategoryStreamProjectionRunner;
 use ProophTest\EventStore\Mock\TestDomainEvent;
 
-class CategoryStreamProjectionTest extends TestCase
+class CategoryStreamProjectionRunnerTest extends TestCase
 {
     /**
      * @test
@@ -84,9 +83,7 @@ class CategoryStreamProjectionTest extends TestCase
 
         $eventStore->commit();
 
-        $projection = new InMemoryEventStoreProjection($eventStore, '$by_category', 100, 100);
-
-        $categoryStreamProjection = new CategoryStreamProjection($projection);
+        $categoryStreamProjection = new CategoryStreamProjectionRunner($eventStore);
         $categoryStreamProjection(false);
 
         $this->assertTrue($eventStore->hasStream(new StreamName('$ct-foo')));
