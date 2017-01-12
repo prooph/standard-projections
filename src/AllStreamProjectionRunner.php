@@ -12,11 +12,10 @@ declare(strict_types=1);
 
 namespace Prooph\StandardProjections;
 
-use Prooph\Common\Messaging\Message;
 use Prooph\EventStore\EventStore;
 use Prooph\EventStore\Projection\ProjectionOptions;
 
-class MessageNameStreamProjection
+class AllStreamProjectionRunner
 {
     /**
      * @var EventStore
@@ -37,12 +36,10 @@ class MessageNameStreamProjection
     public function __invoke(bool $keepRunning = true): void
     {
         $this->eventStore
-            ->createProjection('$by_message_name', $this->projectionOptions)
+            ->createProjection('$all', $this->projectionOptions)
             ->fromAll()
-            ->whenAny(function ($state, Message $event): void {
-                $messageName = $event->messageName();
-
-                $this->linkTo('$mn-' . $messageName, $event);
+            ->whenAny(function ($state, $event): void {
+                $this->emit($event);
             })
             ->run($keepRunning);
     }
