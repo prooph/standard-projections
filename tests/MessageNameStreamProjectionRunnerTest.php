@@ -61,29 +61,25 @@ class MessageNameStreamProjectionRunnerTest extends TestCase
 
         $stream = $eventStore->load(new StreamName('$mn-event-a'));
 
-        $streamEvents = $stream->streamEvents();
+        $this->assertCount(2, $stream);
 
-        $this->assertCount(2, $streamEvents);
-
-        $event = $streamEvents->current();
+        $event = $stream->current();
 
         $this->assertEquals(['1f'], $event->payload());
 
-        $streamEvents->next();
-        $event = $streamEvents->current();
+        $stream->next();
+        $event = $stream->current();
 
         $this->assertEquals(['1b'], $event->payload());
 
         $stream = $eventStore->load(new StreamName('$mn-event-b'));
 
-        $streamEvents = $stream->streamEvents();
-
-        $event = $streamEvents->current();
+        $event = $stream->current();
 
         $this->assertEquals(['2f'], $event->payload());
 
-        $streamEvents->next();
-        $event = $streamEvents->current();
+        $stream->next();
+        $event = $stream->current();
 
         $this->assertEquals(['2b'], $event->payload());
     }
