@@ -76,46 +76,44 @@ class AllStreamProjectionRunnerTest extends TestCase
 
         $stream = $eventStore->load(new StreamName('$all'));
 
-        $streamEvents = $stream->streamEvents();
+        $this->assertCount(8, $stream);
 
-        $this->assertCount(8, $streamEvents);
-
-        $event = $streamEvents->current();
+        $event = $stream->current();
 
         $this->assertEquals(['1'], $event->payload());
 
-        $streamEvents->next();
-        $event = $streamEvents->current();
+        $stream->next();
+        $event = $stream->current();
 
         $this->assertEquals(['2'], $event->payload());
 
-        $streamEvents->next();
-        $event = $streamEvents->current();
+        $stream->next();
+        $event = $stream->current();
 
         $this->assertEquals(['3'], $event->payload());
 
-        $streamEvents->next();
-        $event = $streamEvents->current();
+        $stream->next();
+        $event = $stream->current();
 
         $this->assertEquals(['4'], $event->payload());
 
-        $streamEvents->next();
-        $event = $streamEvents->current();
+        $stream->next();
+        $event = $stream->current();
 
         $this->assertEquals(['a'], $event->payload());
 
-        $streamEvents->next();
-        $event = $streamEvents->current();
+        $stream->next();
+        $event = $stream->current();
 
         $this->assertEquals(['b'], $event->payload());
 
-        $streamEvents->next();
-        $event = $streamEvents->current();
+        $stream->next();
+        $event = $stream->current();
 
         $this->assertEquals(['c'], $event->payload());
 
-        $streamEvents->next();
-        $event = $streamEvents->current();
+        $stream->next();
+        $event = $stream->current();
 
         $this->assertEquals(['d'], $event->payload());
     }
