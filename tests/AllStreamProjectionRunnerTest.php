@@ -74,9 +74,7 @@ class AllStreamProjectionRunnerTest extends TestCase
 
         $this->assertTrue($eventStore->hasStream(new StreamName('$all')));
 
-        $stream = $eventStore->load(new StreamName('$all'));
-
-        $streamEvents = $stream->streamEvents();
+        $streamEvents = $eventStore->load(new StreamName('$all'));
 
         $this->assertCount(8, $streamEvents);
 

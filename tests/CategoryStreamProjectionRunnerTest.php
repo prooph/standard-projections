@@ -89,9 +89,7 @@ class CategoryStreamProjectionRunnerTest extends TestCase
         $this->assertTrue($eventStore->hasStream(new StreamName('$ct-foo')));
         $this->assertTrue($eventStore->hasStream(new StreamName('$ct-bar')));
 
-        $stream = $eventStore->load(new StreamName('$ct-foo'));
-
-        $streamEvents = $stream->streamEvents();
+        $streamEvents = $eventStore->load(new StreamName('$ct-foo'));
 
         $this->assertCount(4, $streamEvents);
 
@@ -114,9 +112,7 @@ class CategoryStreamProjectionRunnerTest extends TestCase
 
         $this->assertEquals(['4'], $event->payload());
 
-        $stream = $eventStore->load(new StreamName('$ct-bar'));
-
-        $streamEvents = $stream->streamEvents();
+        $streamEvents = $eventStore->load(new StreamName('$ct-bar'));
 
         $this->assertCount(4, $streamEvents);
 
