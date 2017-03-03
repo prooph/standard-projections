@@ -15,6 +15,7 @@ namespace ProophTest\StandardProjections;
 use PHPUnit\Framework\TestCase;
 use Prooph\Common\Event\ProophActionEventEmitter;
 use Prooph\EventStore\InMemoryEventStore;
+use Prooph\EventStore\Projection\InMemoryProjectionManager;
 use Prooph\EventStore\Stream;
 use Prooph\EventStore\StreamName;
 use Prooph\StandardProjections\AllStreamProjectionRunner;
@@ -69,7 +70,8 @@ class AllStreamProjectionRunnerTest extends TestCase
 
         $eventStore->commit();
 
-        $allStreamProjection = new AllStreamProjectionRunner($eventStore);
+        $projectionManager = new InMemoryProjectionManager($eventStore);
+        $allStreamProjection = new AllStreamProjectionRunner($projectionManager);
         $allStreamProjection(false);
 
         $this->assertTrue($eventStore->hasStream(new StreamName('$all')));
