@@ -12,31 +12,24 @@ declare(strict_types=1);
 
 namespace Prooph\StandardProjections;
 
-use Prooph\EventStore\EventStore;
-use Prooph\EventStore\Projection\ProjectionOptions;
+use Prooph\EventStore\Projection\ProjectionManager;
 
 class AllStreamProjectionRunner
 {
     /**
-     * @var EventStore
+     * @var ProjectionManager
      */
-    private $eventStore;
+    private $projectionManager;
 
-    /**
-     * @var ProjectionOptions|null
-     */
-    private $projectionOptions;
-
-    public function __construct(EventStore $eventStore, ProjectionOptions $projectionOptions = null)
+    public function __construct(ProjectionManager $projectionManager)
     {
-        $this->eventStore = $eventStore;
-        $this->projectionOptions = $projectionOptions;
+        $this->projectionManager = $projectionManager;
     }
 
     public function __invoke(bool $keepRunning = true): void
     {
-        $this->eventStore
-            ->createProjection('$all', $this->projectionOptions)
+        $this->projectionManager
+            ->createProjection('$all')
             ->fromAll()
             ->whenAny(function ($state, $event): void {
                 $this->emit($event);
