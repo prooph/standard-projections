@@ -19,10 +19,10 @@
     "require": {
         "php": "^7.1",
         "prooph/common": "^4.0",
-        "prooph/event-store": "7.0.x-dev"
+        "prooph/event-store": "^7.0"
     },
     "require-dev": {
-        "prooph/pdo-event-store": "1.0.x-dev",
+        "prooph/pdo-event-store": "^1.0",
         "phpunit/phpunit": "^6.0",
         "phpspec/prophecy": "^1.7",
         "prooph/php-cs-fixer-config": "^0.1.1",
