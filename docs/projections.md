@@ -82,27 +82,8 @@ provide these cli-scripts yourself. This is how they basically look like:
 
 $container = require 'container.php';
 
-$eventStore = $container->get(\Prooph\EventStore\EventStore::class);
+$projectionManager = $container->get(\Prooph\EventStore\Projection\ProjectionManager::class);
 
-$runner = new \Prooph\StandardProjections\AllStreamProjectionRunner($eventStore);
-$runner();
-```
-
-You can also specify projection options:
-
-```php
-<?php
-
-$container = require 'container.php';
-
-$eventStore = $container->get(\Prooph\EventStore\EventStore::class);
-
-$options = new \Prooph\EventStore\Projection\ProjectionOptions(
-    100,
-    100,
-    100000
-);
-
-$runner = new \Prooph\StandardProjections\AllStreamProjectionRunner($eventStore, $options);
+$runner = new \Prooph\StandardProjections\AllStreamProjectionRunner($projectionManager);
 $runner();
 ```
