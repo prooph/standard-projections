@@ -18,7 +18,6 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.1",
-        "prooph/common": "^4.0",
         "prooph/event-store": "^7.0"
     },
     "require-dev": {
@@ -31,7 +30,7 @@
         "prooph/bookdown-template": "^0.2.3"
     },
     "suggest": {
-        "prooph/pdo-event-store": "For usage with MySQL or Postgres as event store"
+        "prooph/pdo-event-store": "^7.0 for usage with MySQL or Postgres as event store"
     },
     "conflict": {
         "sandrokeil/interop-config": "<1.0"
