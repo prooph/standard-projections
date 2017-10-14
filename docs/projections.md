@@ -1,8 +1,19 @@
-# Prooph Standard Projections for Event-Store
+# Overview
 
 The standard projections are some kind of event-indexing, so you can retrieve events from
 all streams at once (`AllStreamProjectionRunner`), by category (`CategoryStreamProjectionRunner`)
 or by message name (`MessageNameStreamProjectionRunner`).
+
+## Installation
+
+```bash
+composer require prooph/standard-projections
+```
+
+## Requirements
+
+- PHP >= 7.1
+- Prooph EventStore v7
 
 ## AllStreamProjectionRunner
 
