@@ -1,9 +1,10 @@
 {
-  "title": "Prooph Standard Projections for Event-Store",
+  "title": "Standard Projections",
   "content": [
-    {"intro": "../README.md"},
     {"overview": "projections.md"}
   ],
+  "tocDepth": 1,
+  "numbering": false,
   "target": "./html",
   "template": "../vendor/prooph/bookdown-template/templates/main.php"
 }
