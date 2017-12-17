@@ -18,19 +18,19 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.1",
-        "prooph/event-store": "^7.0"
+        "prooph/event-store": "^7.3.1"
     },
     "require-dev": {
-        "prooph/pdo-event-store": "^1.0",
+        "prooph/pdo-event-store": "^1.6",
         "phpunit/phpunit": "^6.0",
         "phpspec/prophecy": "^1.7",
-        "prooph/php-cs-fixer-config": "^0.1.1",
+        "prooph/php-cs-fixer-config": "^0.2.1",
         "satooshi/php-coveralls": "^1.0",
         "malukenho/docheader": "^0.1.4",
         "prooph/bookdown-template": "^0.2.3"
     },
     "suggest": {
-        "prooph/pdo-event-store": "^7.0 for usage with MySQL or Postgres as event store"
+        "prooph/pdo-event-store": "^1.6 for usage with MariaDB, MySQL or Postgres as event store"
     },
     "conflict": {
         "sandrokeil/interop-config": "<1.0"
