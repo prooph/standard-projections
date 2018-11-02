@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of the prooph/standard-projections.
  * (c) 2016-2018 prooph software GmbH <contact@prooph.de>
@@ -33,13 +34,13 @@ class CategoryStreamProjectionRunner
             ->fromAll()
             ->whenAny(function ($state, $event): void {
                 $streamName = $this->streamName();
-                $pos = strpos($streamName, '-');
+                $pos = \strpos($streamName, '-');
 
                 if (false === $pos) {
                     return;
                 }
 
-                $category = substr($streamName, 0, $pos);
+                $category = \substr($streamName, 0, $pos);
 
                 $this->linkTo('$ct-' . $category, $event);
             })
