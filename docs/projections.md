@@ -18,7 +18,7 @@ composer require prooph/standard-projections
 ## AllStreamProjectionRunner
 
 Imagine you have two streams, a stream called `user` and a stream called `blogposts`. If you are
-interessted in all events coming from both streams, you can use an EventStoreQuery like this:
+interested in all events coming from both streams, you can use an EventStoreQuery like this:
 
 ```php
 $eventStore
@@ -59,7 +59,7 @@ $eventStore
 
 The `MessageNameStreamProjectionRunner` creates a stream for each occurring message name. Let's say you
 have user-streams with one stream per aggregate again, and streams like `user-1`, `user-2`, and so on.
-You are interessted in all `UserWasRegistered` events, so your query looks like:
+You are interested in all `UserWasRegistered` events, so your query looks like:
 
 ```php
 $eventStore
