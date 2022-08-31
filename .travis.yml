@@ -5,36 +5,12 @@ sudo: false
 matrix:
   fast_finish: true
   include:
-    - php: 7.1
+    - php: 7.4
       sudo: true
       env:
         - DEPENDENCIES=""
         - EXECUTE_CS_CHECK=true
         - TEST_COVERAGE=true
-    - php: 7.1
-      sudo: true
-      env:
-        - DEPENDENCIES="--prefer-lowest --prefer-stable"
-    - php: 7.2
-      sudo: true
-      env:
-        - DEPENDENCIES=""
-    - php: 7.2
-      sudo: true
-      env:
-        - DEPENDENCIES="--prefer-lowest --prefer-stable"
-    - php: 7.4
-      sudo: true
-      env:
-        - DEPENDENCIES=""
-    - php: 7.3
-      sudo: true
-      env:
-        - DEPENDENCIES="--prefer-lowest --prefer-stable"
-    - php: 7.3
-      sudo: true
-      env:
-        - DEPENDENCIES=""
     - php: 7.4
       sudo: true
       env:
