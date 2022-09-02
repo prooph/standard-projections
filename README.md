@@ -12,7 +12,7 @@ or by message name (`MessageNameStreamProjectionRunner`). See docs for more info
 
 ## Requirements
 
-- PHP >= 7.1
+- PHP >= 7.4
 - Prooph EventStore v7
 
 ## Documentation
