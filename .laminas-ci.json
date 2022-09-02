@@ -1,0 +1,12 @@
+{
+    "additional_checks": [
+        {
+            "name": "QA Checks (PHP CS Fixer)",
+            "job": {
+                "php": "@latest",
+                "dependencies": "latest",
+                "command": "vendor/bin/php-cs-fixer fix -v --diff --dry-run"
+            }
+        }
+    ]
+}
