@@ -93,22 +93,22 @@ class AllStreamProjectionRunnerTest extends TestCase
         $streamEvents->next();
         $event = $streamEvents->current();
 
-        $this->assertEquals(['3'], $event->payload());
-
-        $streamEvents->next();
-        $event = $streamEvents->current();
-
-        $this->assertEquals(['4'], $event->payload());
-
-        $streamEvents->next();
-        $event = $streamEvents->current();
-
         $this->assertEquals(['a'], $event->payload());
 
         $streamEvents->next();
         $event = $streamEvents->current();
 
         $this->assertEquals(['b'], $event->payload());
+
+        $streamEvents->next();
+        $event = $streamEvents->current();
+
+        $this->assertEquals(['3'], $event->payload());
+
+        $streamEvents->next();
+        $event = $streamEvents->current();
+
+        $this->assertEquals(['4'], $event->payload());
 
         $streamEvents->next();
         $event = $streamEvents->current();
