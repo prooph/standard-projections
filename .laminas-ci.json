@@ -8,5 +8,8 @@
                 "command": "vendor/bin/php-cs-fixer fix -v --diff --dry-run"
             }
         }
+    ],
+    "additional_composer_arguments": [
+        "--prefer-stable"
     ]
 }
