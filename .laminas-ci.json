@@ -10,8 +10,7 @@
         }
     ],
     "additional_composer_arguments": [
-        "--prefer-stable",
-        "--optimize-autoloader",
-        "--verbose"
+        "--prefer-source",
+        "--prefer-stable"
     ]
 }
