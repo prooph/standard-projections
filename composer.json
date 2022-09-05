@@ -17,7 +17,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^7.4|~8.0.0",
         "prooph/event-store": "^7.5.3"
     },
     "require-dev": {

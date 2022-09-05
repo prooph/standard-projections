@@ -23,14 +23,6 @@ matrix:
       sudo: true
       env:
         - DEPENDENCIES="--prefer-lowest --prefer-stable"
-    - php: 8.1
-      sudo: true
-      env:
-        - DEPENDENCIES=""
-    - php: 8.1
-      sudo: true
-      env:
-        - DEPENDENCIES="--prefer-lowest --prefer-stable"
 
 cache:
   directories:
