@@ -10,7 +10,6 @@
         }
     ],
     "additional_composer_arguments": [
-        "--prefer-source",
         "--prefer-stable"
     ]
 }
