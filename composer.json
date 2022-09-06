@@ -17,7 +17,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.4|~8.0.0",
+        "php": "^7.4 || ~8.0.0",
         "prooph/event-store": "^7.5.3"
     },
     "require-dev": {
@@ -50,5 +50,15 @@
         "preferred-install": {
             "prooph/*": "source"
         }
+    },
+    "scripts": {
+        "check": [
+            "@cs-check",
+            "@test"
+        ],
+        "cs-check": "php-cs-fixer fix -v --diff --dry-run",
+        "cs-fix": "php-cs-fixer fix -v --diff",
+        "test": "phpunit --colors=always",
+        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
     }
 }

@@ -1,6 +1,6 @@
 # Standard Projections for Prooph EventStore
 
-[![Build Status](https://travis-ci.org/prooph/standard-projections.svg?branch=master)](https://travis-ci.org/prooph/standard-projections)
+[![Continuous Integration](https://github.com/prooph/standard-projections/actions/workflows/continuous-integration.yml/badge.svg)](https://github.com/prooph/standard-projections/actions/workflows/continuous-integration.yml)
 [![Coverage Status](https://coveralls.io/repos/prooph/standard-projections/badge.svg?branch=master&service=github)](https://coveralls.io/github/prooph/standard-projections?branch=master)
 [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/prooph/improoph)
 

@@ -7,4 +7,11 @@
 nbproject
 composer.lock
 docs/html
+
 .phpunit.result.cache
+/clover.xml
+/coveralls-upload.json
+/phpunit.xml
+/vendor/
+.phpunit.result.cache
+.phpcs-cache
