@@ -17,17 +17,16 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^7.1",
-        "prooph/event-store": "^7.3.1"
+        "php": "^7.4|~8.0.0",
+        "prooph/event-store": "^7.5.3"
     },
     "require-dev": {
-        "prooph/pdo-event-store": "^1.6",
-        "phpunit/phpunit": "^6.0",
-        "phpspec/prophecy": "^1.7",
-        "friendsofphp/php-cs-fixer": "2.8.4",
-        "prooph/php-cs-fixer-config": "^0.3",
-        "satooshi/php-coveralls": "^1.0",
-        "prooph/bookdown-template": "^0.2.3"
+        "php-coveralls/php-coveralls": "^2.2",
+        "phpspec/prophecy": "^1.10.3",
+        "phpunit/phpunit": "^9.5",
+        "prooph/bookdown-template": "^0.2.3",
+        "prooph/pdo-event-store": "^1.11",
+        "prooph/php-cs-fixer-config": "^0.5"
     },
     "suggest": {
         "prooph/pdo-event-store": "^1.6 for usage with MariaDB, MySQL or Postgres as event store"
@@ -47,6 +46,7 @@
         }
     },
     "config": {
+        "sort-packages": true,
         "preferred-install": {
             "prooph/*": "source"
         }

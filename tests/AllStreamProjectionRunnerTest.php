@@ -2,8 +2,8 @@
 
 /**
  * This file is part of prooph/standard-projections.
- * (c) 2016-2018 prooph software GmbH <contact@prooph.de>
- * (c) 2016-2018 Sascha-Oliver Prolic <saschaprolic@googlemail.com>
+ * (c) 2016-2022 prooph software GmbH <contact@prooph.de>
+ * (c) 2016-2022 Sascha-Oliver Prolic <saschaprolic@googlemail.com>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -93,22 +93,22 @@ class AllStreamProjectionRunnerTest extends TestCase
         $streamEvents->next();
         $event = $streamEvents->current();
 
-        $this->assertEquals(['3'], $event->payload());
-
-        $streamEvents->next();
-        $event = $streamEvents->current();
-
-        $this->assertEquals(['4'], $event->payload());
-
-        $streamEvents->next();
-        $event = $streamEvents->current();
-
         $this->assertEquals(['a'], $event->payload());
 
         $streamEvents->next();
         $event = $streamEvents->current();
 
         $this->assertEquals(['b'], $event->payload());
+
+        $streamEvents->next();
+        $event = $streamEvents->current();
+
+        $this->assertEquals(['3'], $event->payload());
+
+        $streamEvents->next();
+        $event = $streamEvents->current();
+
+        $this->assertEquals(['4'], $event->payload());
 
         $streamEvents->next();
         $event = $streamEvents->current();
