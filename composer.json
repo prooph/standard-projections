@@ -18,7 +18,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^7.4 || ^8.0",
-        "prooph/event-store": "^7.5.3"
+        "prooph/event-store": "^7.7",
     },
     "require-dev": {
         "php-coveralls/php-coveralls": "^2.2",
