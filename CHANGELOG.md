@@ -1,6 +1,14 @@
 # Changelog
 
-## [v1.2.0](https://github.com/prooph/standard-projections/tree/v1.2.0)
+## [v1.3.0](https://github.com/prooph/standard-projections/tree/v1.3.0)
+
+[Full Changelog](https://github.com/prooph/standard-projections/compare/v1.2.0...v1.3.0)
+
+**Implemented enhancements:**
+
+- Php81 compat [\#17](https://github.com/prooph/standard-projections/pull/17) ([basz](https://github.com/basz))
+
+## [v1.2.0](https://github.com/prooph/standard-projections/tree/v1.2.0) (2022-10-03)
 
 [Full Changelog](https://github.com/prooph/standard-projections/compare/v1.1.1...v1.2.0)
 
