@@ -1,64 +1,64 @@
 {
-    "name": "prooph/standard-projections",
-    "description": "Standard Projections for Prooph EventStore",
-    "homepage": "http://getprooph.org/",
-    "license": "BSD-3-Clause",
-    "authors": [
-        {
-            "name": "Alexander Miertsch",
-            "email": "contact@prooph.de",
-            "homepage": "http://www.prooph.de"
-        },
-        {
-            "name": "Sascha-Oliver Prolic",
-            "email": "saschaprolic@googlemail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require": {
-        "php": "^7.4 || ^8.0, <8.3",
-        "prooph/event-store": "^7.8"
+  "name": "prooph/standard-projections",
+  "description": "Standard Projections for Prooph EventStore",
+  "homepage": "http://getprooph.org/",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Alexander Miertsch",
+      "email": "contact@prooph.de",
+      "homepage": "http://www.prooph.de"
     },
-    "require-dev": {
-        "php-coveralls/php-coveralls": "^2.2",
-        "phpspec/prophecy": "^1.10.3",
-        "phpunit/phpunit": "^9.5.5",
-        "prooph/bookdown-template": "^0.2.3",
-        "prooph/pdo-event-store": "^1.11",
-        "prooph/php-cs-fixer-config": "^0.5"
-    },
-    "suggest": {
-        "prooph/pdo-event-store": "^1.6 for usage with MariaDB, MySQL or Postgres as event store"
-    },
-    "conflict": {
-        "sandrokeil/interop-config": "<1.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Prooph\\StandardProjections\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "ProophTest\\StandardProjections\\": "tests/",
-            "ProophTest\\EventStore\\": "vendor/prooph/event-store/tests/"
-        }
-    },
-    "config": {
-        "sort-packages": true,
-        "preferred-install": {
-            "prooph/*": "source"
-        }
-    },
-    "scripts": {
-        "check": [
-            "@cs-check",
-            "@test"
-        ],
-        "cs-check": "php-cs-fixer fix -v --diff --dry-run",
-        "cs-fix": "php-cs-fixer fix -v --diff",
-        "test": "phpunit --colors=always",
-        "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+    {
+      "name": "Sascha-Oliver Prolic",
+      "email": "saschaprolic@googlemail.com"
     }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": "^7.4 || ^8.0, <8.4",
+    "prooph/event-store": "^7.8"
+  },
+  "require-dev": {
+    "php-coveralls/php-coveralls": "^2.2",
+    "phpspec/prophecy": "^1.10.3",
+    "phpunit/phpunit": "^9.5.5",
+    "prooph/bookdown-template": "^0.2.3",
+    "prooph/pdo-event-store": "^1.11",
+    "prooph/php-cs-fixer-config": "^0.5"
+  },
+  "suggest": {
+    "prooph/pdo-event-store": "^1.6 for usage with MariaDB, MySQL or Postgres as event store"
+  },
+  "conflict": {
+    "sandrokeil/interop-config": "<1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Prooph\\StandardProjections\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ProophTest\\StandardProjections\\": "tests/",
+      "ProophTest\\EventStore\\": "vendor/prooph/event-store/tests/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "preferred-install": {
+      "prooph/*": "source"
+    }
+  },
+  "scripts": {
+    "check": [
+      "@cs-check",
+      "@test"
+    ],
+    "cs-check": "php-cs-fixer fix -v --diff --dry-run",
+    "cs-fix": "php-cs-fixer fix -v --diff",
+    "test": "phpunit --colors=always",
+    "test-coverage": "phpunit --colors=always --coverage-clover clover.xml"
+  }
 }
